@@ -180,6 +180,7 @@ void USBH_VbusOnOff (bool vbus) {
   }
 }
 #endif
+
 #ifdef CMSIS_shield_header
 __WEAK int32_t shield_setup (void) {
   return 0;
@@ -256,7 +257,6 @@ int main(void)
   Driver_GPIO0.SetOutput      (GPIO_PORTB(12U), 1U);
   Driver_GPIO0.SetDirection   (GPIO_PORTB(12U), ARM_GPIO_OUTPUT);
   Driver_GPIO0.SetOutputMode  (GPIO_PORTB(12U), ARM_GPIO_PUSH_PULL);
-
 
   /* PF15 Pin (WRLS_WKUP_W) */
   Driver_GPIO0.Setup          (GPIO_PORTF(15U), NULL);
@@ -1295,6 +1295,17 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(MIC_SDIN0_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI8_IRQn, 8, 0);
+  HAL_NVIC_EnableIRQ(EXTI8_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI14_IRQn, 8, 0);
+  HAL_NVIC_EnableIRQ(EXTI14_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_IRQn, 8, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_IRQn);
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
