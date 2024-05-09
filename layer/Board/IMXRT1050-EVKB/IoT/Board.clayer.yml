@@ -113,6 +113,8 @@ layer:
     - component: Keil::CMSIS Driver:MCI
     - component: ARM::CMSIS Driver:USART:Custom
     - component: Keil::CMSIS Driver:USB Device:USB1
+    - component: Keil::CMSIS Driver:USB Host:EHCI_TT
+    - component: Keil::CMSIS Driver:USB Host:USB1
     - component: Keil::CMSIS Driver:USB Host:USB2
     - component: NXP::CMSIS Driver:USART:lpuart_cmsis
     - component: Keil::CMSIS Driver:VIO:Board&IMXRT1050-EVKB
